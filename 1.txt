@@ -1,0 +1,45 @@
+en
+config t
+hostname Class-A
+line console 0
+password KLU123
+login
+exit
+line vty 0 15
+password KLU123
+login
+exit
+enable secret KLEF12
+service password-encryption
+banner motd &Welcome to KLU&
+interface vlan 1
+ip address 10.0.0.1 255.0.0.0
+no shutdown
+exit
+exit
+copy running-config startup-config
+
+
+en
+config t
+hostname Class-B
+line console 0
+password KLU123
+login
+exit
+line vty 0 15
+password KLU123
+login
+exit
+enable secret KLEF12
+service password-encryption
+banner motd &Welcome to CSE&
+interface vlan 1
+ip address 10.0.0.2 255.0.0.0
+no shutdown
+exit
+exit
+copy running-config startup-config
+
+
+
