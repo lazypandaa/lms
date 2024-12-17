@@ -1,0 +1,45 @@
+switch-A
+en
+config t
+vlan 10
+name accounts
+exit
+vlan 20
+name delivery
+exit
+int f0/1
+switchport mode access
+switchport access vlan 10
+exit
+int f0/2
+switchport mode access
+switchport access vlan 20
+exit
+int f0/3
+switchport mode trunk
+exit
+exit
+show vlan brief
+
+switch -B
+en
+config t
+vlan 10
+name accounts
+exit
+vlan 20
+name delivery
+exit
+int f0/1
+switchport mode access
+switchport access vlan 10
+exit
+int f0/2
+switchport mode access
+switchport access vlan 20
+exit
+int f0/3
+switchport mode trunk
+exit
+exit
+show vlan brief
